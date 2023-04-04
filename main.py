@@ -69,17 +69,16 @@ def getDiscount(billAmount, membership):
     return billAmount
 
 
-
 def makeBill(buyingData, membership):
     billAmount = 0
 
     # we extract products name and quantity
     for key, value in buyingData.items():
         # we pass product name and quantity to getPrice() with returns a subtotal for each product
-				# we add to billAmout for each subtotal
+        # we add to billAmout for each subtotal
         billAmount += getPrice(key, value)
 
-				# Finally we call getDiscount() and pass the total amount of products bought, this will return the discounted bill
+        # Finally we call getDiscount() and pass the total amount of products bought, this will return the discounted bill
         billAmount = getDiscount(billAmount, membership)
 
         print('The discounted amount is $:' + str(billAmount))
